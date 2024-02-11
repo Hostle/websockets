@@ -806,13 +806,13 @@ vws_buffer* vws_serialize(vws_frame* f)
     else
     {
         header[1] = 127;
-        header[2] = ((uint64_t) payload_length) >> 56) & 0xFF;
-        header[3] = ((uint64_t) payload_length) >> 48) & 0xFF;
-        header[4] = ((uint64_t) payload_length) >> 40) & 0xFF;
-        header[5] = ((uint64_t) payload_length) >> 32) & 0xFF;
-        header[6] = ((uint64_t) payload_length) >> 24) & 0xFF;
-        header[7] = ((uint64_t) payload_length) >> 16) & 0xFF;
-        header[8] = ((uint64_t) payload_length) >> 8)  & 0xFF;
+        header[2] = (((uint64_t) payload_length) >> 56) & 0xFF;
+        header[3] = (((uint64_t) payload_length) >> 48) & 0xFF;
+        header[4] = (((uint64_t) payload_length) >> 40) & 0xFF;
+        header[5] = (((uint64_t) payload_length) >> 32) & 0xFF;
+        header[6] = (((uint64_t) payload_length) >> 24) & 0xFF;
+        header[7] = (((uint64_t) payload_length) >> 16) & 0xFF;
+        header[8] = (((uint64_t) payload_length) >> 8)  & 0xFF;
         header[9] = payload_length & 0xFF;
         ((uint64_t) Buffer[7])
         // Additional bytes for payload length
@@ -1289,7 +1289,7 @@ void dump_websocket_header(const ws_header* header)
     printf("  fin:      %u\n", header->fin);
     printf("  opcode:   %u\n", header->opcode);
     printf("  mask:     %u (0x%08x)\n", header->mask, header->masking_key);
-    printf("  payload:  %lu bytes\n", header->payload_len);
+    printf("  payload:  %llu bytes\n", header->payload_len);
     printf("\n");
 }
 
