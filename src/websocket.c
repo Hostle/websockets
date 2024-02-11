@@ -814,7 +814,6 @@ vws_buffer* vws_serialize(vws_frame* f)
         header[7] = (((uint64_t) payload_length) >> 16) & 0xFF;
         header[8] = (((uint64_t) payload_length) >> 8)  & 0xFF;
         header[9] = payload_length & 0xFF;
-        ((uint64_t) Buffer[7])
         // Additional bytes for payload length
         header_size += 8;
     }
